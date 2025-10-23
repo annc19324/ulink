@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tải Video YouTube</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <h1>Tải Video YouTube</h1>
+    <form action="/download" method="post">
+        <input type="text" name="url" placeholder="Nhập link YouTube" required>
+        <br>
+        <button type="submit">Tải xuống</button>
+    </form>
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+    <div class="support-section">
+        <p>Hỗ trợ chúng tôi để tiếp tục phát triển! Nhấn để xem mã QR.</p>
+        <button onclick="toggleQR()">Hiển thị mã QR</button>
+        <div id="qr-code" style="display: none;">
+            <img src="/images/vp.jpg" alt="Mã QR">
+        </div>
+    </div>
+    <script>
+        function toggleQR() {
+            const qrDiv = document.getElementById('qr-code');
+            qrDiv.style.display = qrDiv.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+
+</html>
