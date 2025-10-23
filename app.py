@@ -21,7 +21,9 @@ def download():
             'outtmpl': 'downloads/%(title)s.%(ext)s',
             'format': 'best',
             'noplaylist': True,
-            'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36'
+            'geo_bypass': True,  # Bỏ qua giới hạn địa lý
+            # Hoặc dùng proxy (thay bằng proxy thực tế, ví dụ từ dịch vụ miễn phí)
+            # 'proxy': 'http://your-proxy-address:port'
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
